@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Project</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required />
+    
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+        <br>
+        <button type="submit">Login</button>
+    </form>
+    <br>
+    <p><h2>Choose the event you want to register for</h2></p>
+    <div id="events">
+        <button onclick="selectEvent('Sankalp')">Sankalp</button>
+        <button onclick="selectEvent('Marathon')">Marathon</button>
+        <button onclick="selectEvent('Startup')">Startup</button>
+    </div>
+    
+    <script>
+        function selectEvent(event) {
+            if (event === 'Sankalp') {
+                window.location.href = 'registration_sankalp.html';
+            } else if (event === 'Marathon') {
+                window.location.href = 'registration_marathon.html';
+            } else if (event === 'Startup') {
+                window.location.href = 'registration_startup.html';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankalp Registration</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Register for Sankalp</h1>
+    
+    <form id="registrationForm" enctype="multipart/form-data">
+        <input type="hidden" id="event" value="Sankalp" />
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" required />
+        
+        <label for="image">Upload Image (Optional):</label>
+        <input type="file" id="image" accept="image/*" />
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            try {
+                const response = await fetch('http://localhost:5000/register', {
+                    method: 'POST',
+                    body: formData,
+                });
+                alert(await response.text());
+            } catch (err) {
+                alert('Error: ' + err.message);
+            }
+        });
+    </script>
+</body>
+</html>
